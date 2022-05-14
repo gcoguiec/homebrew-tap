@@ -13,7 +13,7 @@ class Libtrellis < Formula
 
   depends_on 'cmake' => :build
   depends_on 'ninja' => :build
-  depends_on 'boost' => :build
+  depends_on 'boost'
   depends_on 'python' => :recommended
   depends_on 'boost-python3' => [:build, :recommended]
 
@@ -28,19 +28,21 @@ class Libtrellis < Formula
 
   def install
     (buildpath/'database').install resource('prjtrellis-db')
-    args = ['-DBoost_NO_BOOST_CMAKE=ON', "-DCURRENT_GIT_VERSION=#{version}"]
+    args = ['-DBoost_NO_BOOST_CMAKE=ON']
+    args << "-DCURRENT_GIT_VERSION=#{version}" unless build.head?
+    args << "-DCURRENT_GIT_VERSION=#{head.version.commit}" if build.head?
     cd 'libtrellis' do
       system 'cmake', '-GNinja', *std_cmake_args, *args, '.'
       system 'ninja', "-j#{Hardware::CPU.cores}"
-      system "ninja", "install"
+      system 'ninja', 'install'
     end
   end
 
   test do
-    system 'ecpbram', '-h'
-    system 'ecpmulti', '-h'
-    system 'ecppack', '-h'
-    system 'ecpunpack', '-h'
-    system 'ecppll', '-h'
+    system "#{bin}/ecpbram", '-h'
+    system "#{bin}/ecpmulti", '-h'
+    system "#{bin}/ecppack", '-h'
+    system "#{bin}/ecpunpack", '-h'
+    system "#{bin}/ecppll", '-h'
   end
 end
