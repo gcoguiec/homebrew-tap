@@ -27,7 +27,7 @@ class NextpnrEcp5 < Formula
 
   resource 'fpga-interchange-schema' do
     url 'https://github.com/chipsalliance/fpga-interchange-schema/archive/9a48ae4d37b260e5d263287ce84e618b8e2d7f55.tar.gz'
-    sha256 '5a50912b6cc9a8a85ceb7e61964fd7d8afe3c8fb0fe84cac06e3d32e3a1f87d5'
+    sha256 'fb2190720b6caf52fd0559476b3e7b6ccf3ecd5c177f0da4e10b6d5d8985a8e5'
   end unless build.head?
 
   resource 'fpga-interchange-schema' do
