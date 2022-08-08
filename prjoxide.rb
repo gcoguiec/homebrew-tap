@@ -26,6 +26,6 @@ class Prjoxide < Formula
   end
 
   test do
-    system "#{bin}/prjoxide", '--help'
+    system "#{bin}/prjoxide", '-h'
   end
 end
