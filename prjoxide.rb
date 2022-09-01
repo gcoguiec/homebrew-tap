@@ -2,6 +2,7 @@ class Prjoxide < Formula
   desc 'A project to document the Lattice Nexus (28nm) devices bitstream and internal architecture'
   homepage 'https://github.com/gatecat/prjoxide'
   version '20220808'
+  license 'ISC Licence'
   url 'https://github.com/gatecat/prjoxide/archive/c2186112a678d20c67547cf72f8d43c704b9dad4.tar.gz'
   sha256 'd4509d98d3ab39542b4a06bdf7d0c233a356b77916a9255ae780a84cf54d5303'
   head 'https://github.com/gatecat/prjoxide.git'
