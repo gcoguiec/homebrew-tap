@@ -3,8 +3,8 @@ class Icestorm < Formula
   homepage 'https://github.com/YosysHQ/icestorm'
   version '20220109'
   license 'ISC Licence'
-  url 'https://github.com/YosysHQ/icestorm/archive/2bc541743ada3542c6da36a50e66303b9cbd2059.tar.gz'
-  sha256 '3e47b12a7d6e58671b1a6ab4fcd4a56a81b9c4f2a7cfccbc1af46297f46543a7'
+  url 'https://github.com/YosysHQ/icestorm/archive/a545498d6fd0a28a006976293917115037d4628c.tar.gz'
+  sha256 '58c7087e94383ac7cfeeb93618d08eb62383e0f867ab298f33d9e734ddb60cd4'
   head 'https://github.com/YosysHQ/icestorm.git'
 
   depends_on 'pkg-config' => :build

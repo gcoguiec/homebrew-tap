@@ -1,10 +1,10 @@
 class NextpnrEcp5 < Formula
   desc 'Portable FPGA place and route toolkit for Lattice ECP5/ECP5-5G FPGA family'
   homepage 'https://github.com/YosysHQ/nextpnr'
-  version '0.3'
+  version '0.4'
   license 'ISC Licence'
-  url 'https://github.com/YosysHQ/nextpnr/archive/refs/tags/nextpnr-0.3.tar.gz'
-  sha256 '6dda678d369a73ca262896b672958eebeb2e6817f60afb411db31abeff191c4a'
+  url 'https://github.com/YosysHQ/nextpnr/archive/refs/tags/nextpnr-0.4.tar.gz'
+  sha256 'ae8e01496c3bb6607cef0e2501b8cf00aba564e9b116dd323887575ab82757c0'
   head 'https://github.com/YosysHQ/nextpnr.git'
 
   option 'without-python', 'Without python integration'

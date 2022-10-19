@@ -1,11 +1,11 @@
 class Ecpprog < Formula
   desc 'A basic driver for FTDI based JTAG probes (FT232H, FT2232H, FT4232H), to program Lattice ECP5/Nexus FPGAs'
-  homepage 'https://github.com/gcoguiec/ecpprog'
-  version '20220808'
+  homepage 'https://github.com/gregdavill/ecpprog'
+  version '20220913'
   license 'ISC Licence'
-  url 'https://github.com/gcoguiec/ecpprog/archive/7285c4b1aa38956b4b55a51c98d54c8e0e6de1d2.tar.gz'
-  sha256 'f8cf1e88aaa2cdd95bf2473d7a1d2a081e57f82c2e97eca1be98c18d897a5e15'
-  head 'https://github.com/gcoguiec/ecpprog.git'
+  url 'https://github.com/gregdavill/ecpprog/archive/8af8863855599f4b8ef8f46a336408b1aba60e9d.tar.gz'
+  sha256 'b88d49ec086e425e83b27e23dd1f48e4a82ad3bc2618c0c91b0e658d5063498e'
+  head 'https://github.com/gregdavill/ecpprog.git'
 
   depends_on 'libftdi0' => :build
   depends_on 'libusb-compat' => :build

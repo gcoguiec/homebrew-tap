@@ -1,17 +1,17 @@
 class Prjoxide < Formula
   desc 'A project to document the Lattice Nexus (28nm) devices bitstream and internal architecture'
   homepage 'https://github.com/gatecat/prjoxide'
-  version '20220808'
+  version '20220926'
   license 'ISC Licence'
-  url 'https://github.com/gatecat/prjoxide/archive/c2186112a678d20c67547cf72f8d43c704b9dad4.tar.gz'
-  sha256 'd4509d98d3ab39542b4a06bdf7d0c233a356b77916a9255ae780a84cf54d5303'
+  url 'https://github.com/gatecat/prjoxide/archive/ea89720449915ab73afdb6f1f2f48939dae6a9e7.tar.gz'
+  sha256 '0056106fe251ad9cbbb43897f2a20082860173bd8221aa9acf1dbe4b3929b7a8'
   head 'https://github.com/gatecat/prjoxide.git'
 
   depends_on 'rust' => :build
 
   resource 'prjoxide-db' do
-    url 'https://github.com/gatecat/prjoxide-db/archive/1566e0d8af245c4d52f4c5ec04667e5a4f0f01e2.tar.gz'
-    sha256 '2d840947247a91daeb8c058448cb3cd3fe2c0b949ecc8eb5df21b48cc38f37f5'
+    url 'https://github.com/gatecat/prjoxide-db/archive/56009be1ca77a7123ffdb50a813216302a42ac27.tar.gz'
+    sha256 '164f7c3b93f778465b5a72ece445a1f9fc7af3a6fd303b7090b9540fb803f9c6'
   end unless build.head?
 
   resource 'prjoxide-db' do
