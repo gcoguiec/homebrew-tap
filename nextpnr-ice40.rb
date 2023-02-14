@@ -1,10 +1,10 @@
 class NextpnrIce40 < Formula
   desc 'Portable FPGA place and route toolkit for Lattice iCE40 LP/HX FPGA family'
   homepage 'https://github.com/YosysHQ/nextpnr'
-  version '0.4'
+  version '0.5'
   license 'ISC Licence'
-  url 'https://github.com/YosysHQ/nextpnr/archive/refs/tags/nextpnr-0.4.tar.gz'
-  sha256 'ae8e01496c3bb6607cef0e2501b8cf00aba564e9b116dd323887575ab82757c0'
+  url 'https://github.com/YosysHQ/nextpnr/archive/refs/tags/nextpnr-0.5.tar.gz'
+  sha256 '2e3485753123f1505351a37adec37ce47a3a96d3f67bbcaf59ec390c8ffc1cdd'
   head 'https://github.com/YosysHQ/nextpnr.git'
 
   option 'without-python', 'Without python integration'
@@ -21,12 +21,12 @@ class NextpnrIce40 < Formula
   depends_on 'boost' => :build if build.with? 'static'
   depends_on 'eigen' if build.without? 'static'
   depends_on 'eigen' => :build if build.with? 'static'
-  depends_on 'python' unless build.without? 'python'
+  depends_on 'python@3.11' unless build.without? 'python'
   depends_on 'icestorm'
 
   resource 'fpga-interchange-schema' do
-    url 'https://github.com/chipsalliance/fpga-interchange-schema/archive/9a48ae4d37b260e5d263287ce84e618b8e2d7f55.tar.gz'
-    sha256 'fb2190720b6caf52fd0559476b3e7b6ccf3ecd5c177f0da4e10b6d5d8985a8e5'
+    url 'https://github.com/chipsalliance/fpga-interchange-schema/archive/c985b4648e66414b250261c1ba4cbe45a2971b1c.tar.gz'
+    sha256 'c1c7ef5a5d38d740b97971d91a25d1099c58cef007e654b4fbceaa1538f757bf'
   end unless build.head?
 
   resource 'fpga-interchange-schema' do
@@ -41,6 +41,14 @@ class NextpnrIce40 < Formula
       "-DICESTORM_INSTALL_PREFIX=#{Formula["icestorm"].opt_prefix}",
       '-DARCH=ice40'
     ]
+
+    if build.with? 'python'
+      `python3.11-config --includes`.chomp.split.each do |entry|
+        include_path = entry[2..]
+        args << "-DPYTHON3_INCLUDE_DIR=#{include_path}" if File.directory? include_path
+      end
+    end
+
     args << '-DBUILD_PYTHON=OFF' if build.without? 'python'
     args << '-DBUILD_HEAP=OFF' if build.without? 'heap'
     args << '-DUSE_OPENMP=ON' if build.with? 'openmp'

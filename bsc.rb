@@ -1,9 +1,9 @@
 class Bsc < Formula
   desc 'Bluespec Compiler (BSC)'
   homepage 'https://github.com/B-Lang-org/bsc'
-  version '2022.01'
+  version '2023.01'
   license 'BSD-3-Clause'
-  url 'https://github.com/B-Lang-org/bsc.git', tag: '2022.01'
+  url 'https://github.com/B-Lang-org/bsc.git', tag: '2023.01'
   sha256 'eb7b949e43a20269d2badfe5a21c1e0838a2913c80d6be6eaff7460fd7361462'
   head 'https://github.com/B-Lang-org/bsc.git'
 
@@ -22,7 +22,7 @@ class Bsc < Formula
       "PREFIX=#{libexec}",
       "GHCJOBS=4",
       'GHCRTSFLAGS=+RTS -M5G -A128m -RTS',
-      'MACOSX_DEPLOYMENT_TARGET=12.3'
+      'MACOSX_DEPLOYMENT_TARGET=13.1'
     bin.write_exec_script "#{libexec}/bin/bsc"
     bin.write_exec_script "#{libexec}/bin/bluetcl"
   end

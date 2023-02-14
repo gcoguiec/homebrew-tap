@@ -1,10 +1,10 @@
 class Prjtrellis < Formula
   desc 'Open-source flow library for Lattice ECP5/ECP5-5G FPGA family'
   homepage 'https://github.com/YosysHQ/prjtrellis'
-  version '1.2.1'
+  version '1.2.1-dev'
   license 'ISC Licence'
-  url 'https://github.com/YosysHQ/prjtrellis/archive/refs/tags/1.2.1.tar.gz'
-  sha256 '561f7881dc6d39c7ac47721e19aed533c230b47a684aa9a0c3dae08cdc3d8dbb'
+  url 'https://github.com/YosysHQ/prjtrellis/archive/b3197851bbd292602f45f51dda3f38d1ca60d23d.tar.gz'
+  sha256 '627f7f6dbb56034b407b23a060127f5f58a5d73d685b99f92b113768cfce188d'
   head 'https://github.com/YosysHQ/prjtrellis.git'
 
   option 'without-python', 'Without python integration'
@@ -15,7 +15,7 @@ class Prjtrellis < Formula
   depends_on 'ninja' => :build
   depends_on 'boost' if build.without? 'static'
   depends_on 'boost' => :build if build.with? 'static'
-  depends_on 'python' if build.with? 'python'
+  depends_on 'python@3.11' if build.with? 'python'
   depends_on 'boost-python3' if build.with? 'python' and build.without? 'static'
   depends_on 'boost-python3' => :build if build.with? 'python' and build.with? 'static'
 
@@ -32,6 +32,14 @@ class Prjtrellis < Formula
     (buildpath/'database').install resource('prjtrellis-db')
 
     args = []
+
+    if build.with? 'python'
+      `python3.11-config --includes`.chomp.split.each do |entry|
+        include_path = entry[2..]
+        args << "-DPYTHON3_INCLUDE_DIR=#{include_path}" if File.directory? include_path
+      end
+    end
+
     args << '-DBUILD_PYTHON=OFF' if build.without? 'python'
     args << '-DBUILD_SHARED=OFF' if build.without? 'shared'
     args << '-DSTATIC_BUILD=ON' if build.with? 'static'

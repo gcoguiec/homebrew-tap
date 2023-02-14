@@ -1,10 +1,10 @@
 class NextpnrEcp5 < Formula
   desc 'Portable FPGA place and route toolkit for Lattice ECP5/ECP5-5G FPGA family'
   homepage 'https://github.com/YosysHQ/nextpnr'
-  version '0.3'
+  version '0.5'
   license 'ISC Licence'
-  url 'https://github.com/YosysHQ/nextpnr/archive/refs/tags/nextpnr-0.3.tar.gz'
-  sha256 '6dda678d369a73ca262896b672958eebeb2e6817f60afb411db31abeff191c4a'
+  url 'https://github.com/YosysHQ/nextpnr/archive/refs/tags/nextpnr-0.5.tar.gz'
+  sha256 '2e3485753123f1505351a37adec37ce47a3a96d3f67bbcaf59ec390c8ffc1cdd'
   head 'https://github.com/YosysHQ/nextpnr.git'
 
   option 'without-python', 'Without python integration'
@@ -26,8 +26,8 @@ class NextpnrEcp5 < Formula
   depends_on 'python' unless build.without? 'python'
 
   resource 'fpga-interchange-schema' do
-    url 'https://github.com/chipsalliance/fpga-interchange-schema/archive/9a48ae4d37b260e5d263287ce84e618b8e2d7f55.tar.gz'
-    sha256 'fb2190720b6caf52fd0559476b3e7b6ccf3ecd5c177f0da4e10b6d5d8985a8e5'
+    url 'https://github.com/chipsalliance/fpga-interchange-schema/archive/c985b4648e66414b250261c1ba4cbe45a2971b1c.tar.gz'
+    sha256 'c1c7ef5a5d38d740b97971d91a25d1099c58cef007e654b4fbceaa1538f757bf'
   end unless build.head?
 
   resource 'fpga-interchange-schema' do
@@ -42,6 +42,14 @@ class NextpnrEcp5 < Formula
       "-DTRELLIS_INSTALL_PREFIX=#{Formula["prjtrellis"].opt_prefix}",
       '-DARCH=ecp5'
     ]
+
+    if build.with? 'python'
+      `python3.11-config --includes`.chomp.split.each do |entry|
+        include_path = entry[2..]
+        args << "-DPYTHON3_INCLUDE_DIR=#{include_path}" if File.directory? include_path
+      end
+    end
+
     args << '-DBUILD_PYTHON=OFF' if build.without? 'python'
     args << '-DBUILD_HEAP=OFF' if build.without? 'heap'
     args << '-DUSE_OPENMP=ON' if build.with? 'openmp'
