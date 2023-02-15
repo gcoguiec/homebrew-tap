@@ -23,7 +23,7 @@ class NextpnrNexus < Formula
   depends_on 'boost' => :build if build.with? 'static'
   depends_on 'eigen' if build.without? 'static'
   depends_on 'eigen' => :build if build.with? 'static'
-  depends_on 'python' unless build.without? 'python'
+  depends_on 'python@3.11' unless build.without? 'python'
 
   resource 'fpga-interchange-schema' do
     url 'https://github.com/chipsalliance/fpga-interchange-schema/archive/c985b4648e66414b250261c1ba4cbe45a2971b1c.tar.gz'
