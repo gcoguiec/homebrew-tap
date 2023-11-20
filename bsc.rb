@@ -3,9 +3,9 @@ class Bsc < Formula
   homepage 'https://github.com/B-Lang-org/bsc'
   version '2023.01'
   license 'BSD-3-Clause'
-  url 'https://github.com/B-Lang-org/bsc.git', tag: '2023.01'
-  sha256 'eb7b949e43a20269d2badfe5a21c1e0838a2913c80d6be6eaff7460fd7361462'
-  head 'https://github.com/B-Lang-org/bsc.git'
+  url 'https://github.com/B-Lang-org/bsc.git', tag: '2023.07'
+  sha256 '692b22d980523b23e9bda95362808e25ff231d9838715ce8c9d9489a07bce1a8'
+  head 'https://github.com/B-Lang-org/bsc.git', branch: 'main'
 
   depends_on 'autoconf' => :build
   depends_on 'pkg-config' => :build
@@ -22,7 +22,7 @@ class Bsc < Formula
       "PREFIX=#{libexec}",
       "GHCJOBS=4",
       'GHCRTSFLAGS=+RTS -M5G -A128m -RTS',
-      'MACOSX_DEPLOYMENT_TARGET=13.1'
+      'MACOSX_DEPLOYMENT_TARGET=14.1'
     bin.write_exec_script "#{libexec}/bin/bsc"
     bin.write_exec_script "#{libexec}/bin/bluetcl"
   end

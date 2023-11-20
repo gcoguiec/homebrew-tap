@@ -1,10 +1,10 @@
 class NextpnrNexus < Formula
   desc 'Portable FPGA place and route toolkit for Lattice Nexus FPGA family'
   homepage 'https://github.com/YosysHQ/nextpnr'
-  version '0.5'
+  version '0.6'
   license 'ISC Licence'
-  url 'https://github.com/YosysHQ/nextpnr/archive/refs/tags/nextpnr-0.5.tar.gz'
-  sha256 '2e3485753123f1505351a37adec37ce47a3a96d3f67bbcaf59ec390c8ffc1cdd'
+  url 'https://github.com/YosysHQ/nextpnr/archive/refs/tags/nextpnr-0.6.tar.gz'
+  sha256 '76fa4bca48cc8462a8a3c28f89673439e7632a9baabc7bb121c58b75936d2d0b'
   head 'https://github.com/YosysHQ/nextpnr.git'
 
   option 'without-python', 'Without python integration'
@@ -23,7 +23,7 @@ class NextpnrNexus < Formula
   depends_on 'boost' => :build if build.with? 'static'
   depends_on 'eigen' if build.without? 'static'
   depends_on 'eigen' => :build if build.with? 'static'
-  depends_on 'python@3.11' unless build.without? 'python'
+  depends_on 'python@3.12' unless build.without? 'python'
 
   resource 'fpga-interchange-schema' do
     url 'https://github.com/chipsalliance/fpga-interchange-schema/archive/c985b4648e66414b250261c1ba4cbe45a2971b1c.tar.gz'
@@ -44,7 +44,7 @@ class NextpnrNexus < Formula
     ]
 
     if build.with? 'python'
-      `python3.11-config --includes`.chomp.split.each do |entry|
+      `python3.12-config --includes`.chomp.split.each do |entry|
         include_path = entry[2..]
         args << "-DPYTHON3_INCLUDE_DIR=#{include_path}" if File.directory? include_path
       end

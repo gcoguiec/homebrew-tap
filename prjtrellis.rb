@@ -1,10 +1,10 @@
 class Prjtrellis < Formula
   desc 'Open-source flow library for Lattice ECP5/ECP5-5G FPGA family'
   homepage 'https://github.com/YosysHQ/prjtrellis'
-  version '1.2.1-dev'
+  version '1.4'
   license 'ISC Licence'
-  url 'https://github.com/YosysHQ/prjtrellis/archive/b3197851bbd292602f45f51dda3f38d1ca60d23d.tar.gz'
-  sha256 '627f7f6dbb56034b407b23a060127f5f58a5d73d685b99f92b113768cfce188d'
+  url 'https://github.com/YosysHQ/prjtrellis/archive/refs/tags/1.4.tar.gz'
+  sha256 '46fe9d98676953e0cccf1d6332755d217a0861e420f1a12dabfda74d81ccc147'
   head 'https://github.com/YosysHQ/prjtrellis.git'
 
   option 'without-python', 'Without python integration'
@@ -20,8 +20,8 @@ class Prjtrellis < Formula
   depends_on 'boost-python3' => :build if build.with? 'python' and build.with? 'static'
 
   resource 'prjtrellis-db' do
-    url 'https://github.com/YosysHQ/prjtrellis-db/archive/35d900a94ff0db152679a67bf6e4fbf40ebc34aa.tar.gz'
-    sha256 '83dd2975860f94ece1003426add37f5d99eff62d2ba764a14d9a358d9880ecd0'
+    url 'https://github.com/YosysHQ/prjtrellis/releases/download/1.4/prjtrellis-db-1.4.zip'
+    sha256 '4f8a8a5344f85c628fb3ba3862476058c80bcb8ffb3604c5cca84fede11ff9f0'
   end unless build.head?
 
   resource 'prjtrellis-db' do

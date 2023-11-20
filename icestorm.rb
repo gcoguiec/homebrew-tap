@@ -8,7 +8,7 @@ class Icestorm < Formula
   head 'https://github.com/YosysHQ/icestorm.git'
 
   depends_on 'pkg-config' => :build
-  depends_on 'libftdi0'
+  depends_on 'libftdi'
   depends_on 'python'
 
   def install
