@@ -12,7 +12,6 @@ brew tap gcoguiec/tap
 
 | Name            |  Version |
 | --------------- | -------- |
-| `bsc`           | 2023.07  |
 | `prjtrellis`    | 1.4      |
 | `nextpnr-ice40` | 0.6      |
 | `nextpnr-ecp5`  | 0.6      |
