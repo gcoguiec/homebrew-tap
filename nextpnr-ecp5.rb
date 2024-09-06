@@ -3,8 +3,8 @@ class NextpnrEcp5 < Formula
   homepage 'https://github.com/YosysHQ/nextpnr'
   version '0.7'
   license 'ISC Licence'
-  url 'https://github.com/YosysHQ/nextpnr/archive/refs/tags/nextpnr-0.7.tar.gz'
-  sha256 'bd173cb218c97f66e4afdf7b886d70c8c0893f544a1cf20b50c0182a1d9f2f45'
+  url 'https://github.com/YosysHQ/nextpnr/archive/4d1de4532acf35bf4fdeea8bfcfb0e8b9ad3578c.tar.gz'
+  sha256 'edee6e3358245da8eac2a368dd3eceee69f147a9122df901cd39459eaac2010c'
   head 'https://github.com/YosysHQ/nextpnr.git'
 
   option 'without-python', 'Without python integration'
