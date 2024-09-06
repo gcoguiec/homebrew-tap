@@ -1,10 +1,10 @@
 class NextpnrNexus < Formula
   desc 'Portable FPGA place and route toolkit for Lattice Nexus FPGA family'
   homepage 'https://github.com/YosysHQ/nextpnr'
-  version '0.6'
+  version '0.7'
   license 'ISC Licence'
-  url 'https://github.com/YosysHQ/nextpnr/archive/refs/tags/nextpnr-0.6.tar.gz'
-  sha256 '76fa4bca48cc8462a8a3c28f89673439e7632a9baabc7bb121c58b75936d2d0b'
+  url 'https://github.com/YosysHQ/nextpnr/archive/refs/tags/nextpnr-0.7.tar.gz'
+  sha256 'bd173cb218c97f66e4afdf7b886d70c8c0893f544a1cf20b50c0182a1d9f2f45'
   head 'https://github.com/YosysHQ/nextpnr.git'
 
   option 'without-python', 'Without python integration'

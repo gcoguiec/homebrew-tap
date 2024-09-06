@@ -1,10 +1,10 @@
 class Icestorm < Formula
   desc 'A project to document the Lattice iCE40 FPGA bitstream and internal architecture'
   homepage 'https://github.com/YosysHQ/icestorm'
-  version '20230201'
+  version '20240624'
   license 'ISC Licence'
-  url 'https://github.com/YosysHQ/icestorm/archive/8649e3e0bd0e09429898d2569ef65cc9fd3eafd7.tar.gz'
-  sha256 '18ca5d14a037c7315469af1f2b381fdbb562f4e711f9349eb0cbcd3ac7d05bae'
+  url 'https://github.com/YosysHQ/icestorm/archive/738af822905fdcf0466e9dd784b9ae4b0b34987f.tar.gz'
+  sha256 'c5384f9168a250448e68319434ca6763096ff5439abfd9d3dd06777f309b0004'
   head 'https://github.com/YosysHQ/icestorm.git'
 
   depends_on 'pkg-config' => :build
